@@ -1,14 +1,16 @@
 "use client";
 import { useState } from "react";
 
+// Type for ServiceCard props
 type ServiceCardProps = {
   title: string;
   points: string[];
 };
 
 export default function Home() {
+  // Typing activeTab for TS safety
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("residential");
+  const [activeTab, setActiveTab] = useState<"residential" | "commercial">("residential");
 
   // ---------------- SERVICE CARD COMPONENT ----------------
   const ServiceCard = ({ title, points }: ServiceCardProps) => (
@@ -151,15 +153,187 @@ export default function Home() {
 
           {/* SERVICE CARDS GRID */}
           <div className="grid md:grid-cols-3 gap-10">
+            {/* ---------------- RESIDENTIAL ---------------- */}
             {activeTab === "residential" && (
               <>
-                {/* Residential ServiceCards go here */}
+                <ServiceCard
+                  title="Laundry & Ironing"
+                  points={[
+                    "Doorstep pickup & delivery",
+                    "Washing, ironing & folding",
+                    "Express / same-day service",
+                    "Dry cleaning coordination",
+                  ]}
+                />
+                <ServiceCard
+                  title="Car Wash & Maintenance"
+                  points={[
+                    "On-site car washing",
+                    "Interior vacuuming",
+                    "Tyre polishing & dashboard cleaning",
+                    "Waterless eco-friendly wash",
+                  ]}
+                />
+                <ServiceCard
+                  title="Water Delivery"
+                  points={[
+                    "20L jar delivery",
+                    "Scheduled or on-call supply",
+                    "Tracking & replacement system",
+                  ]}
+                />
+                <ServiceCard
+                  title="Newspaper & Magazine Delivery"
+                  points={[
+                    "Daily newspaper delivery",
+                    "Magazine subscriptions",
+                    "Payment collection",
+                  ]}
+                />
+                <ServiceCard
+                  title="Housekeeping & Cleaning"
+                  points={[
+                    "Room, kitchen & bathroom cleaning",
+                    "Deep cleaning for new flats",
+                    "Sofa, carpet & curtain cleaning",
+                  ]}
+                />
+                <ServiceCard
+                  title="Appliance & Repair Services"
+                  points={[
+                    "AC, fridge & washing machine repair",
+                    "Electrical & plumbing service",
+                    "RO filter servicing",
+                  ]}
+                />
+                <ServiceCard
+                  title="Pest Control & Sanitization"
+                  points={[
+                    "Anti-termite, rodent & cockroach control",
+                    "Disinfection & sanitization",
+                  ]}
+                />
+                <ServiceCard
+                  title="Gardening & Common Area Maintenance"
+                  points={[
+                    "Garden upkeep & trimming",
+                    "Watering services",
+                    "Common area sweeping & cleaning",
+                  ]}
+                />
+                <ServiceCard
+                  title="Waste Management"
+                  points={[
+                    "Door-to-door garbage collection",
+                    "Wet/dry waste segregation",
+                    "Municipal pickup coordination",
+                  ]}
+                />
+                <ServiceCard
+                  title="Security & Watchman Services"
+                  points={[
+                    "Trained security personnel",
+                    "CCTV monitoring support",
+                    "Visitor management",
+                  ]}
+                />
+                <ServiceCard
+                  title="Society Management Support"
+                  points={[
+                    "Maintenance fee collection",
+                    "Complaint tracking",
+                    "Vendor management",
+                  ]}
+                />
               </>
             )}
 
+            {/* ---------------- COMMERCIAL ---------------- */}
             {activeTab === "commercial" && (
               <>
-                {/* Commercial ServiceCards go here */}
+                <ServiceCard
+                  title="Housekeeping & Cleaning Services"
+                  points={[
+                    "Daily office & washroom cleaning",
+                    "Pantry upkeep",
+                    "Carpet, sofa & chair shampooing",
+                    "Window & façade cleaning",
+                  ]}
+                />
+                <ServiceCard
+                  title="Technical Maintenance"
+                  points={[
+                    "Electrical systems & wiring",
+                    "Plumbing & water supply",
+                    "HVAC servicing",
+                    "Generator & UPS maintenance",
+                  ]}
+                />
+                <ServiceCard
+                  title="Security & Surveillance"
+                  points={[
+                    "Trained security guards",
+                    "CCTV installation & monitoring",
+                    "Access control & visitor management",
+                    "Fire safety system checks",
+                  ]}
+                />
+                <ServiceCard
+                  title="Pest Control & Sanitization"
+                  points={[
+                    "Termite, rodent & cockroach control",
+                    "Office & warehouse disinfection",
+                    "Regular pest management schedules",
+                  ]}
+                />
+                <ServiceCard
+                  title="Waste Management"
+                  points={[
+                    "Wet/dry/recyclable segregation",
+                    "Hazardous waste handling",
+                    "Authorized waste vendor tie-ups",
+                  ]}
+                />
+                <ServiceCard
+                  title="Facility Support Staff"
+                  points={[
+                    "Office boys / peons",
+                    "Receptionists & front desk",
+                    "Pantry boys / attendants",
+                    "Lift operators & drivers",
+                  ]}
+                />
+                <ServiceCard
+                  title="Landscape & Outdoor Maintenance"
+                  points={[
+                    "Lawn and garden maintenance",
+                    "Parking area cleaning",
+                    "Outdoor light maintenance",
+                  ]}
+                />
+                <ServiceCard
+                  title="Project & Asset Management"
+                  points={[
+                    "Vendor coordination",
+                    "Inventory & asset tracking",
+                    "Event & conference setup",
+                  ]}
+                />
+                <ServiceCard
+                  title="Specialized Services"
+                  points={[
+                    "IT equipment & server room cleaning",
+                    "Emergency maintenance response",
+                  ]}
+                />
+                <ServiceCard
+                  title="Annual Maintenance Contracts (AMC)"
+                  points={[
+                    "Monthly/annual packages",
+                    "Scheduled maintenance visits",
+                    "Performance reporting",
+                  ]}
+                />
               </>
             )}
           </div>
@@ -193,10 +367,50 @@ export default function Home() {
       {/* ---------------- FOOTER ---------------- */}
       <footer className="bg-black text-gray-300 py-14">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {/* Footer content */}
+          <div className="col-span-2 md:col-span-1">
+            <img src="/M-care.png" alt="Logo" className="h-14 w-auto mb-3" />
+            <p className="text-gray-400 text-sm mb-6 max-w-xs">
+              Making home services easier, faster and more reliable.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-white font-semibold mb-3 text-base">Services</h3>
+            <ul className="space-y-1 text-sm text-gray-400">
+              <li>Cleaning</li>
+              <li>Plumbing</li>
+              <li>Electrical</li>
+              <li>Gardening</li>
+              <li>Handyman</li>
+              <li>HVAC</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-white font-semibold mb-3 text-base">Company</h3>
+            <ul className="space-y-1 text-sm text-gray-400">
+              <li>About Us</li>
+              <li>Careers</li>
+              <li>Blog</li>
+              <li>Press</li>
+              <li>Partners</li>
+            </ul>
+          </div>
+
+          <div className="col-span-2 md:col-span-1">
+            <h3 className="text-white font-semibold mb-3 text-base">Contact</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              123 Main Street, Bangalore
+              <br />
+              560034
+            </p>
+            <p className="text-gray-400 text-sm mt-2">hello@homyhelp.com</p>
+            <p className="text-gray-400 text-sm mt-2">+91 8062179412</p>
+          </div>
         </div>
+
         <div className="text-center text-gray-500 text-sm mt-10">
-          © {new Date().getFullYear()} M-Care Services -  All rights reserved.
+          © {new Date().getFullYear()} M-Care Services - All rights reserved.
         </div>
       </footer>
     </div>
