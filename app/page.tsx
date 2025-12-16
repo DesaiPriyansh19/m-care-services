@@ -1,6 +1,7 @@
 "use client";
+
 import { useState } from "react";
-import { PhoneCall } from "lucide-react"; 
+
 // Type for ServiceCard props
 type ServiceCardProps = {
   title: string;
@@ -8,7 +9,6 @@ type ServiceCardProps = {
 };
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [activeTab, setActiveTab] =
     useState<"residential" | "commercial">("residential");
 
@@ -25,83 +25,10 @@ export default function Home() {
   );
 
   return (
-    /* 🔒 Prevent horizontal overflow (fixes black line) */
     <div
       className="text-gray-900 bg-white scroll-smooth font-sans overflow-x-hidden"
       style={{ fontFamily: `'Inter', 'Poppins', sans-serif` }}
     >
-  {/* ---------------- HEADER ---------------- */}
-{/* ---------------- HEADER ---------------- */}
-{/* ---------------- HEADER ---------------- */}
-<header className="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md border-b border-gray-100">
-  <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:px-6">
-    <img
-      src="/M-care.png"
-      alt="M-Care Services"
-      className="h-12 md:h-14 w-auto object-contain"
-    />
-
-    <nav className="hidden md:flex items-center space-x-10 font-medium">
-      {["home", "services", "about"].map((item) => (
-        <a
-          key={item}
-          href={`#${item}`}
-          className="relative text-gray-600 hover:text-black transition after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
-        >
-          {item.charAt(0).toUpperCase() + item.slice(1)}
-        </a>
-      ))}
-    </nav>
-
-    {/* SINGLE CALL US BUTTON WITH PROFESSIONAL ICON */}
-    <a
-      href="tel:+918062179412"
-      className="hidden md:inline-flex items-center bg-black text-white px-6 py-2.5 rounded-xl text-sm font-semibold shadow-sm hover:bg-gray-900 hover:scale-105 transition-transform gap-2"
-    >
-      <PhoneCall className="w-4 h-4" />
-      Call Us
-    </a>
-
-    {/* MOBILE MENU BUTTON */}
-    <button
-      onClick={() => setMenuOpen(!menuOpen)}
-      className="md:hidden"
-      aria-label="Open menu"
-    >
-      <span className="block w-6 h-[2px] bg-black mb-1"></span>
-      <span className="block w-6 h-[2px] bg-black mb-1"></span>
-      <span className="block w-6 h-[2px] bg-black"></span>
-    </button>
-  </div>
-
-  {/* ---------------- MOBILE MENU ---------------- */}
-  {menuOpen && (
-    <div className="md:hidden bg-white border-t border-gray-100 px-6 py-6 space-y-5">
-      {["home", "services", "about"].map((sec) => (
-        <a
-          key={sec}
-          href={`#${sec}`}
-          onClick={() => setMenuOpen(false)}
-          className="block text-gray-700 text-lg capitalize"
-        >
-          {sec}
-        </a>
-      ))}
-
-      {/* Mobile Call Button */}
-      <a
-        href="tel:+918062179412"
-        className="block bg-black text-white text-center px-4 py-3 rounded-xl font-semibold shadow-sm hover:bg-gray-900 hover:scale-105 transition-transform flex items-center justify-center gap-2"
-      >
-        <PhoneCall className="w-4 h-4" />
-        Call Us
-      </a>
-    </div>
-  )}
-</header>
-
-
-
       {/* ---------------- HERO ---------------- */}
       <section
         id="home"
@@ -126,12 +53,11 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <a
-                href="#services"
+                href="/services"
                 className="bg-black text-white px-8 py-4 rounded-xl text-lg font-semibold shadow hover:bg-gray-900 transition"
               >
                 View Services
               </a>
-
             </div>
           </div>
 
@@ -145,9 +71,8 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* ---------------- SERVICES ---------------- */}
-      <section id="services" className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <h3 className="text-4xl font-bold text-center mb-16">
             Our Services
@@ -177,31 +102,118 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {activeTab === "residential" && (
               <>
-                <ServiceCard title="Laundry & Ironing" points={["Doorstep pickup & delivery","Washing, ironing & folding","Express / same-day service","Dry cleaning coordination"]} />
-                <ServiceCard title="Car Wash & Maintenance" points={["On-site car washing","Interior vacuuming","Tyre & dashboard cleaning","Eco-friendly wash"]} />
-                <ServiceCard title="Water Delivery" points={["20L jar delivery","Scheduled or on-call supply","Tracking system"]} />
-                <ServiceCard title="Housekeeping & Cleaning" points={["Daily & deep cleaning","Sofa & carpet cleaning","Move-in cleaning"]} />
-                <ServiceCard title="Pest Control" points={["Anti-termite","Rodent & cockroach control","Sanitization"]} />
-                <ServiceCard title="Security Services" points={["Trained guards","CCTV monitoring","Visitor management"]} />
+                <ServiceCard
+                  title="Laundry & Ironing"
+                  points={[
+                    "Doorstep pickup & delivery",
+                    "Washing, ironing & folding",
+                    "Express / same-day service",
+                    "Dry cleaning coordination",
+                  ]}
+                />
+                <ServiceCard
+                  title="Car Wash & Maintenance"
+                  points={[
+                    "On-site car washing",
+                    "Interior vacuuming",
+                    "Tyre & dashboard cleaning",
+                    "Eco-friendly wash",
+                  ]}
+                />
+                <ServiceCard
+                  title="Water Delivery"
+                  points={[
+                    "20L jar delivery",
+                    "Scheduled or on-call supply",
+                    "Tracking system",
+                  ]}
+                />
+                <ServiceCard
+                  title="Housekeeping & Cleaning"
+                  points={[
+                    "Daily & deep cleaning",
+                    "Sofa & carpet cleaning",
+                    "Move-in cleaning",
+                  ]}
+                />
+                <ServiceCard
+                  title="Pest Control"
+                  points={[
+                    "Anti-termite",
+                    "Rodent & cockroach control",
+                    "Sanitization",
+                  ]}
+                />
+                <ServiceCard
+                  title="Security Services"
+                  points={[
+                    "Trained guards",
+                    "CCTV monitoring",
+                    "Visitor management",
+                  ]}
+                />
               </>
             )}
 
             {activeTab === "commercial" && (
               <>
-                <ServiceCard title="Office Housekeeping" points={["Daily cleaning","Pantry support","Carpet shampooing"]} />
-                <ServiceCard title="Technical Maintenance" points={["Electrical","Plumbing","HVAC","UPS & Generator"]} />
-                <ServiceCard title="Security & Surveillance" points={["Security guards","CCTV","Access control"]} />
-                <ServiceCard title="Waste Management" points={["Segregation","Authorized vendors","Hazardous waste"]} />
-                <ServiceCard title="Facility Staff" points={["Office boys","Reception","Pantry staff"]} />
-                <ServiceCard title="AMC Contracts" points={["Monthly / yearly plans","Scheduled visits","Reports"]} />
+                <ServiceCard
+                  title="Office Housekeeping"
+                  points={[
+                    "Daily cleaning",
+                    "Pantry support",
+                    "Carpet shampooing",
+                  ]}
+                />
+                <ServiceCard
+                  title="Technical Maintenance"
+                  points={[
+                    "Electrical",
+                    "Plumbing",
+                    "HVAC",
+                    "UPS & Generator",
+                  ]}
+                />
+                <ServiceCard
+                  title="Security & Surveillance"
+                  points={[
+                    "Security guards",
+                    "CCTV",
+                    "Access control",
+                  ]}
+                />
+                <ServiceCard
+                  title="Waste Management"
+                  points={[
+                    "Segregation",
+                    "Authorized vendors",
+                    "Hazardous waste",
+                  ]}
+                />
+                <ServiceCard
+                  title="Facility Staff"
+                  points={[
+                    "Office boys",
+                    "Reception",
+                    "Pantry staff",
+                  ]}
+                />
+                <ServiceCard
+                  title="AMC Contracts"
+                  points={[
+                    "Monthly / yearly plans",
+                    "Scheduled visits",
+                    "Reports",
+                  ]}
+                />
               </>
             )}
           </div>
         </div>
       </section>
 
-      {/* ---------------- ABOUT ---------------- */}
-      <section id="about" className="py-20 bg-gray-50">
+      {/* ---------------- ABOUT PREVIEW ---------------- */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h3 className="text-4xl font-bold mb-6">About Us</h3>
@@ -212,6 +224,13 @@ export default function Home() {
             <p className="text-gray-600 leading-relaxed">
               Transparent pricing, trained staff, and fast support — guaranteed.
             </p>
+
+            <a
+              href="/about"
+              className="inline-block mt-6 font-semibold text-black hover:underline"
+            >
+              Learn more about us →
+            </a>
           </div>
 
           <img
@@ -221,58 +240,6 @@ export default function Home() {
           />
         </div>
       </section>
-
-      {/* ---------------- FOOTER ---------------- */}
-      <footer className="bg-black text-gray-300 pt-16">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10">
-          <div>
-            <img src="/M-care.png" alt="Logo" className="h-12 mb-4" />
-            <p className="text-sm text-gray-400">
-              Reliable facility & home services for apartments and offices.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-white font-semibold mb-4">Services</h3>
-            <ul className="space-y-2 text-sm text-gray-400">
-              {["Cleaning","Security","Maintenance","Water Supply","Pest Control"].map(
-                (i) => (
-                  <li key={i} className="hover:text-white transition hover:underline">
-                    {i}
-                  </li>
-                )
-              )}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-white font-semibold mb-4">Company</h3>
-            <ul className="space-y-2 text-sm text-gray-400">
-              {["About Us","Careers","Blog","Partners"].map((i) => (
-                <li key={i} className="hover:text-white transition hover:underline">
-                  {i}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-white font-semibold mb-4">Contact</h3>
-            <p className="text-sm text-gray-400">Bangalore, India</p>
-            <p className="text-sm text-gray-400 mt-2">
-              hello@mcareservices.com
-            </p>
-            <p className="text-sm text-gray-400 mt-2">
-              +91 8062179412
-            </p>
-          </div>
-        </div>
-
-        <div className="border-t border-gray-800 mt-12"></div>
-        <div className="text-center text-gray-500 text-sm py-6">
-          © {new Date().getFullYear()} M-Care Services. All rights reserved.
-        </div>
-      </footer>
 
       {/* FLOATING WHATSAPP */}
       <a
