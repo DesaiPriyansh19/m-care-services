@@ -35,12 +35,12 @@ export default function Footer() {
 
         <div>
           <h3 className="text-white font-semibold mb-4">Contact</h3>
-          <p className="text-sm text-gray-400">Bangalore, India</p>
+          <p className="text-sm text-gray-400">Thaltej , Ahmedabad, India</p>
           <p className="text-sm text-gray-400 mt-2">
             hello@mcareservices.com
           </p>
           <p className="text-sm text-gray-400 mt-2">
-            +91 8062179412
+            +91 9898254545
           </p>
         </div>
       </div>

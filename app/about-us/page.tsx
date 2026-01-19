@@ -210,7 +210,7 @@ export default function AboutPage() {
         </p>
 
         <a
-          href="tel:+918062179412"
+          href="tel:+919898254545"
           className="inline-flex items-center gap-3 bg-white text-black px-8 py-4 rounded-xl font-semibold hover:scale-105 transition"
         >
           <PhoneCall className="w-5 h-5" />

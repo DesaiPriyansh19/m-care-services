@@ -105,7 +105,7 @@ export default function ServicesPage() {
                   "Dry cleaning coordination",
                   "Express / same-day service",
                 ]}
-                image="/services/laundry.jpg"
+                image="/Laundry-Ironing-Services.png"
               />
 
               <ServiceSection
@@ -118,7 +118,7 @@ export default function ServicesPage() {
                   "Tyre polishing & dashboard cleaning",
                   "Waterless wash (eco-friendly option)",
                 ]}
-                image="/services/car-wash.jpg"
+                image="/CarWashMaintenance.png"
                 reverse
               />
 
@@ -131,7 +131,7 @@ export default function ServicesPage() {
                   "Regular schedule or on-call delivery",
                   "Tracking and replacement system",
                 ]}
-                image="/services/water.jpg"
+                image="/WaterSupply.png"
               />
 
               <ServiceSection
@@ -143,7 +143,7 @@ export default function ServicesPage() {
                   "Magazine subscriptions",
                   "Payment collection & management",
                 ]}
-                image="/services/newspaper.jpg"
+                image="/NewsPapper.png"
                 reverse
               />
 
@@ -156,7 +156,7 @@ export default function ServicesPage() {
                   "Deep cleaning for new flats",
                   "Sofa, carpet, and curtain cleaning",
                 ]}
-                image="/services/housekeeping.jpg"
+                image="/HouseKeeping.png"
               />
 
               <ServiceSection
@@ -168,7 +168,7 @@ export default function ServicesPage() {
                   "Electrical & plumbing fixes",
                   "RO filter servicing",
                 ]}
-                image="/services/appliance.jpg"
+                image="/ApplianceRepairServices.png"
                 reverse
               />
 
@@ -180,7 +180,7 @@ export default function ServicesPage() {
                   "Anti-termite, cockroach, and rodent control",
                   "Disinfection and sanitization services",
                 ]}
-                image="/services/pest.jpg"
+                image="/PestControl&Sanitization.png"
               />
 
               <ServiceSection
@@ -192,7 +192,7 @@ export default function ServicesPage() {
                   "Watering & trimming plants",
                   "Common area sweeping and cleaning",
                 ]}
-                image="/services/garden.jpg"
+                image="/Gardening&CommonAreaMaintenance.png"
                 reverse
               />
 
@@ -205,7 +205,7 @@ export default function ServicesPage() {
                   "Segregation (wet/dry waste)",
                   "Coordination with municipal pickup",
                 ]}
-                image="/services/waste.jpg"
+                image="/WasteManagement.png"
               />
 
               <ServiceSection
@@ -217,7 +217,7 @@ export default function ServicesPage() {
                   "CCTV monitoring support",
                   "Visitor management system",
                 ]}
-                image="/services/security.jpg"
+                image="/Security&WatchmanServices.png"
                 reverse
               />
 
@@ -230,7 +230,7 @@ export default function ServicesPage() {
                   "Complaint tracking & resolution",
                   "Vendor management for societies",
                 ]}
-                image="/services/society.jpg"
+                image="/SocietyManagementSupport.png"
               />
             </>
           )}
@@ -248,7 +248,7 @@ export default function ServicesPage() {
                   "Carpet, sofa, and chair shampooing",
                   "Window & façade cleaning",
                 ]}
-                image="/services/office-cleaning.jpg"
+                image="/commercial/CommercialHousekeepingServices.png"
               />
 
               <ServiceSection
@@ -261,7 +261,7 @@ export default function ServicesPage() {
                   "HVAC (AC & ventilation system) servicing",
                   "Generator & UPS maintenance",
                 ]}
-                image="/services/maintenance.jpg"
+                image="/commercial/TechnicalMaintenance.png"
                 reverse
               />
 
@@ -275,7 +275,7 @@ export default function ServicesPage() {
                   "CCTV installation & monitoring",
                   "Fire safety system inspection",
                 ]}
-                image="/services/corporate-security.jpg"
+                image="/commercial/Security&Surveillance.png"
               />
 
               <ServiceSection
@@ -287,7 +287,7 @@ export default function ServicesPage() {
                   "Rodent, termite, and cockroach control",
                   "Office & warehouse disinfection",
                 ]}
-                image="/services/commercial-pest.jpg"
+                image="/commercial/PestControll&Sanitization.png"
                 reverse
               />
 
@@ -300,7 +300,7 @@ export default function ServicesPage() {
                   "Hazardous waste handling (labs/hospitals)",
                   "Tie-up with authorized waste vendors",
                 ]}
-                image="/services/commercial-waste.jpg"
+                image="/commercial/CommercialWasteManagement.png"
               />
 
               <ServiceSection
@@ -313,7 +313,7 @@ export default function ServicesPage() {
                   "Pantry boys / attendants",
                   "Lift operators & drivers",
                 ]}
-                image="/services/staff.jpg"
+                image="/commercial/FacilitySupportStaff.png"
                 reverse
               />
 
@@ -326,7 +326,7 @@ export default function ServicesPage() {
                   "Parking area cleaning",
                   "Signage & outdoor light maintenance",
                 ]}
-                image="/services/landscape.jpg"
+                image="/commercial/Landscape&OutdoorMaintenance.png"
               />
 
               <ServiceSection
@@ -338,7 +338,7 @@ export default function ServicesPage() {
                   "Vendor coordination",
                   "Inventory & asset tracking",
                 ]}
-                image="/services/assets.jpg"
+                image="/commercial/Project&AssetManagement.png"
                 reverse
               />
 
@@ -354,7 +354,7 @@ export default function ServicesPage() {
                   "Scheduled maintenance visits",
                   "Reporting & performance tracking",
                 ]}
-                image="/services/amc.jpg"
+                image="/commercial/Specialized&AMCServices.png"
               />
             </>
           )}
