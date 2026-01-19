@@ -1,28 +1,62 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 
-// Type for ServiceCard props
+/* ---------------- TYPES ---------------- */
 type ServiceCardProps = {
   title: string;
   points: string[];
 };
 
+/* ---------------- ANIMATED BLOB ---------------- */
+const AnimatedBlob = ({
+  className,
+  delay = 0,
+}: {
+  className: string;
+  delay?: number;
+}) => (
+  <motion.div
+    className={className}
+    animate={{
+      x: [0, 40, -40, 0],
+      y: [0, -30, 30, 0],
+      scale: [1, 1.1, 0.95, 1],
+    }}
+    transition={{
+      duration: 18,
+      repeat: Infinity,
+      ease: "easeInOut",
+      delay,
+    }}
+  />
+);
+
+/* ---------------- SERVICE CARD ---------------- */
+const ServiceCard = ({ title, points }: ServiceCardProps) => (
+  <motion.div
+    variants={{
+      hidden: { opacity: 0, y: 20 },
+      visible: { opacity: 1, y: 0 },
+    }}
+    whileHover={{ y: -6 }}
+    transition={{ type: "spring", stiffness: 200 }}
+    className="group p-8 bg-white rounded-2xl shadow-md hover:shadow-xl transition border border-gray-200"
+  >
+    <h4 className="text-xl font-semibold mb-4">{title}</h4>
+    <ul className="text-gray-600 text-sm leading-relaxed space-y-2">
+      {points.map((p, i) => (
+        <li key={i}>• {p}</li>
+      ))}
+    </ul>
+  </motion.div>
+);
+
+/* ---------------- PAGE ---------------- */
 export default function Home() {
   const [activeTab, setActiveTab] =
     useState<"residential" | "commercial">("residential");
-
-  // ---------------- SERVICE CARD COMPONENT ----------------
-  const ServiceCard = ({ title, points }: ServiceCardProps) => (
-    <div className="group p-8 bg-white rounded-2xl shadow-md hover:shadow-xl transition border border-gray-200">
-      <h4 className="text-xl font-semibold mb-4">{title}</h4>
-      <ul className="text-gray-600 text-sm leading-relaxed space-y-2">
-        {points.map((p, i) => (
-          <li key={i}>• {p}</li>
-        ))}
-      </ul>
-    </div>
-  );
 
   return (
     <div
@@ -30,15 +64,22 @@ export default function Home() {
       style={{ fontFamily: `'Inter', 'Poppins', sans-serif` }}
     >
       {/* ---------------- HERO ---------------- */}
-      <section
-        id="home"
-        className="relative pt-32 pb-4 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100"
-      >
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-black/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/4 -right-24 w-96 h-96 bg-black/5 rounded-full blur-3xl"></div>
+      <section className="relative pt-32 pb-4 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100">
+        {/* Animated blobs */}
+        <AnimatedBlob className="absolute -top-24 -left-24 w-96 h-96 bg-black/10 rounded-full blur-3xl" />
+        <AnimatedBlob
+          className="absolute top-1/4 -right-24 w-96 h-96 bg-black/5 rounded-full blur-3xl"
+          delay={2}
+        />
 
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
-          <div className="text-center md:text-left pt-4">
+          {/* Text */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center md:text-left pt-4"
+          >
             <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6 max-w-xl">
               One Partner for <br />
               <span className="text-gray-700">
@@ -51,21 +92,26 @@ export default function Home() {
               security, maintenance, water supply and more.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <a
-                href="/services"
-                className="bg-black text-white px-8 py-4 rounded-xl text-lg font-semibold shadow hover:bg-gray-900 transition"
-              >
-                View Services
-              </a>
-            </div>
-          </div>
+            <a
+              href="/services"
+              className="inline-block bg-black text-white px-8 py-4 rounded-xl text-lg font-semibold shadow hover:bg-gray-900 transition"
+            >
+              View Services
+            </a>
+          </motion.div>
 
-          <div className="hidden rounded-2xl md:flex justify-end items-start">
-            <img
+          {/* Image */}
+          <div className="hidden md:flex justify-end items-start">
+            <motion.img
               src="/hero2-img.png"
               alt="Facility Services"
               className="w-full max-w-xl mt-2 drop-shadow-2xl rounded-2xl"
+              animate={{ y: [0, -10, 0] }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             />
           </div>
         </div>
@@ -78,7 +124,7 @@ export default function Home() {
             Our Services
           </h3>
 
-          {/* TABS */}
+          {/* Tabs */}
           <div className="flex justify-center mb-12">
             <div className="bg-white shadow-lg rounded-full p-2 flex gap-2">
               {["residential", "commercial"].map((tab) => (
@@ -99,7 +145,19 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {/* Cards */}
+          <motion.div
+            key={activeTab}
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: {},
+              visible: {
+                transition: { staggerChildren: 0.08 },
+              },
+            }}
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10"
+          >
             {activeTab === "residential" && (
               <>
                 <ServiceCard
@@ -208,13 +266,19 @@ export default function Home() {
                 />
               </>
             )}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* ---------------- ABOUT PREVIEW ---------------- */}
+      {/* ---------------- ABOUT ---------------- */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center"
+        >
           <div>
             <h3 className="text-4xl font-bold mb-6">About Us</h3>
             <p className="text-gray-600 mb-6 leading-relaxed">
@@ -238,16 +302,14 @@ export default function Home() {
             alt="M-Care Team"
             className="rounded-2xl shadow-lg"
           />
-        </div>
+        </motion.div>
       </section>
 
-      {/* FLOATING WHATSAPP */}
+      {/* WhatsApp */}
       <a
         href="https://wa.me/918062179412?text=Hi%2C%20I%27m%20interested%20in%20M-Care%20Services."
         target="_blank"
-        rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 bg-green-800 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition"
-        aria-label="Chat on WhatsApp"
       >
         💬
       </a>
