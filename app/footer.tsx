@@ -37,7 +37,7 @@ export default function Footer() {
           <h3 className="text-white font-semibold mb-4">Contact</h3>
           <p className="text-sm text-gray-400"> C-401 Ganesh Glory,Jagatpur,Ahmedabad, India</p>
           <p className="text-sm text-gray-400 mt-2">
-            hello@mcareservices.com
+            info@m-careservices.in
           </p>
           <p className="text-sm text-gray-400 mt-2">
             +91 9898254545
