@@ -21,7 +21,7 @@ export default function Header() {
           <img
             src="/M-care.png"
             alt="M-Care Services"
-            className="h-12 md:h-14 w-auto object-contain cursor-pointer"
+            className="h-12 md:h-14 lg:h-16 xl:max-h-20 w-auto object-contain cursor-pointer"
           />
         </Link>
 
@@ -40,7 +40,7 @@ export default function Header() {
 
         {/* CALL BUTTON */}
       <a
-  href="/brochure.pdf"
+  href="/"
   target="_blank"
   rel="noopener noreferrer"
   className="

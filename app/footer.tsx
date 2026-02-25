@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="bg-black text-gray-300 pt-16">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10">
         <div>
-          <img src="/M-care.png" alt="Logo" className="h-12 mb-4" />
+          <img src="/M-care.png" alt="Logo" className="h-14 lg:16 xl:20 mb-9 " />
           <p className="text-sm text-gray-400">
             Reliable facility & home services for apartments and offices.
           </p>

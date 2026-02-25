@@ -59,7 +59,73 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+{/* ---------------- LEADERSHIP ---------------- */}
+<section className="py-24 bg-white">
+  <div className="max-w-7xl mx-auto px-6">
+    
+    {/* Section Heading */}
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold mb-4">
+        Our Leadership Team
+      </h2>
+      <p className="text-gray-600 max-w-2xl mx-auto">
+        The people behind M-Care Services driving excellence, reliability, and growth.
+      </p>
+    </div>
 
+    {/* Leadership Grid */}
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      
+      {[
+        {
+          name: "Jitu Bhai Patel",
+          role: "Founder & CEO",
+          desc: "Leads company vision, strategy, and overall operations with a focus on service excellence and long-term growth.",
+        },
+        {
+          name: "Mayur Bhai",
+          role: "Director – Operations",
+          desc: "Oversees daily operations, workforce management, and ensures consistent service delivery across projects.",
+        },
+        {
+          name: "Mihir Bhai",
+          role: "Head – Facility Management",
+          desc: "Manages residential and commercial service execution with quality control and accountability.",
+        },
+     
+      ].map((person) => (
+        <div
+          key={person.name}
+          className="bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-gray-200 text-center"
+        >
+          {/* Image */}
+          <div className="w-32 h-32 mx-auto mb-6 rounded-xl bg-gray-200 overflow-hidden">
+            <img
+              src="/default-img.jpg" // Replace with actual image
+              alt={person.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Name */}
+          <h3 className="text-xl font-semibold mb-1">
+            {person.name}
+          </h3>
+
+          {/* Role */}
+          <p className="text-gray-500 text-sm font-medium mb-4">
+            {person.role}
+          </p>
+
+          {/* Description */}
+          <p className="text-gray-600 text-sm leading-relaxed">
+            {person.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
       {/* ---------------- WHAT WE DO ---------------- */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
